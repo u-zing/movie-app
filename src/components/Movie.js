@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"; // 소문자로 수정
 import { Link } from "react-router-dom";
 
-function Movie({ coverImg, title, year, summary, genres }) {
+function Movie({ id, coverImg, title, year, summary, genres }) {
   return (
     <div>
       <img
@@ -9,7 +9,7 @@ function Movie({ coverImg, title, year, summary, genres }) {
         alt={title}
       />
       <h2>
-        <Link to="/movie">
+        <Link to={`/movie/${id}`}>
           {title} ({year})
         </Link>
       </h2>
@@ -25,6 +25,7 @@ function Movie({ coverImg, title, year, summary, genres }) {
 
 Movie.propTypes = {
   // propType -> propTypes로 수정
+  id: PropTypes.number.isRequired,
   coverImg: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   summary: PropTypes.string.isRequired,
